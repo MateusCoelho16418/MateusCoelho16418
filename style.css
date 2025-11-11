@@ -1,0 +1,426 @@
+/* ======== RESET ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fff;
+}
+
+/* ======== NAVBAR ======== */
+.navbar {
+    background-color: #009E60;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 50px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+    
+}
+
+.navbar .logo img {
+    height: 60px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #FFD700;
+}
+
+/* ======== HERO ======== */
+.hero {
+    display: flex;
+    /* use the logo image as the hero background */
+    align-items: stretch; /* let children fill hero height */
+    justify-content: space-between;
+    padding: 60px 50px;
+    background-color: #f7f7f7;
+    background-image: url(images/pngtree-analog-watch-watch-poster-picture-image_16180668.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; /* for overlay */
+    color: #fff; /* better default contrast on image */
+    min-height: 70vh; /* make the hero larger */
+}
+
+.hero-text {
+    max-width: 45%;
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center text */
+    align-items: flex-start; /* prevent children (like the button) stretching to full width */
+    position: relative; /* sit above overlay */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-text p {
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.btn-green {
+    background-color: #009E60;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-green:hover {
+    background-color: #007A4B;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2; /* content above overlay */
+}
+
+.hero-image img {
+    /* hide the inline img because the hero now uses the logo as a background */
+    display: none;
+}
+
+/* subtle dark overlay for better text contrast on top of background image */
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+/* ======== PARTNERS ======== */
+.partners {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #EDEDED;
+    padding: 20px 0;
+}
+
+.partners img {
+    height: 50px;
+    filter: none;
+    transition: filter 0.3s;
+}
+
+.partners img:hover {
+    filter: grayscale(0);
+}
+
+/* ======== NEW TIME ======== */
+.new-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 80px 50px;
+    background-color: #fff;
+    gap: 0;
+}
+
+.new-time-text {
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 20px 60px 20px 50px;
+}
+
+.new-time-text h2 {
+    font-size: 2.6em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* make the first paragraph (subtitle) a bit larger than the following body paragraph */
+.new-time-text p:first-of-type {
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    color: #000000;
+    font-style: italic;
+}
+
+.new-time-text p:nth-of-type(2) {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+    color: #000000;
+}
+
+.new-time-text p {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.benefits {
+    background-color: #00FF9D;
+    padding: 20px 22px;
+    border-radius: 8px;
+    color: #000;
+    font-style: italic;
+    display: inline-block; /* only as wide as its content */
+    max-width: 380px; /* prevent it stretching past the image */
+    margin-top: 22px;
+}
+
+.new-time-image {
+    position: relative;
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* keep background transparent so only the image shows */
+    background: transparent;
+}
+
+.new-time-image img {
+    width: 420px;
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.btn-blue {
+    background-color: #0033cc;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 6px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    transition: background-color 0.3s, transform 0.15s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    font-size: 1rem;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-blue:hover {
+    background-color: #002299;
+}
+
+.small {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* caption under CTA inside new-time-image */
+.new-time-image .small {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(0, 0, 0);
+    font-size: 0.85rem;
+    z-index: 3;
+    text-align: center;
+}
+
+/* ======== TRANSPORTE (panel like materials/energy) ======== */
+.transport {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    padding: 0; /* sections span edge-to-edge so images align evenly */
+    color: white;
+    min-height: 45vh; /* consistent height so images match */
+}
+
+.transport-text {
+    background: #00A878;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* title close to inner edge */
+    text-align: left;
+    justify-content: center;
+    padding: 48px 60px;
+}
+
+.transport-image {
+    overflow: hidden;
+}
+
+.transport-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.transport-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 3.2rem;
+    line-height: 1.05;
+    margin: 0;
+    color: #fff;
+}
+
+.transport-text p {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.95);
+    max-width: 70%;
+}
+
+/* ======== MATERIAIS & ENERGIA (grid panels) ======== */
+.materials, .energy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    padding: 0; /* sections span edge-to-edge so images align evenly */
+    color: white;
+    min-height: 45vh; /* consistent height so images match */
+}
+
+/* left block (materials) uses green background for the text column; image sits on the right */
+.materials {
+    background-color: transparent; /* keep transparency so text block handles background */
+}
+
+.materials-text {
+    background: #00A878;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* mirror energy-text: title close to inner edge (left for this layout) */
+    text-align: left;
+    justify-content: center;
+    padding: 48px 60px;
+}
+
+.materials-image {
+    overflow: hidden;
+}
+
+/* right block (energy) — image on the left, text on the right */
+.energy {
+    background-color: transparent;
+}
+
+.energy-image {
+    overflow: hidden;
+}
+
+.energy-text {
+    background: #008F5A;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* title close to the inner edge */
+    text-align: left;
+    justify-content: center;
+    padding: 48px 60px;
+}
+
+/* ensure all section images fill their grid cell and have identical sizing */
+.materials img, .energy img, .materials-image img, .energy-image img, .transport img, .transport-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* title styling: Montserrat thin italic, large and spaced like the reference */
+.materials-text h2, .energy-text h2, .transport-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 3.2rem;
+    line-height: 1.05;
+    margin: 0;
+    color: #fff;
+}
+
+.materials-text p, .energy-text p, .transport-text p {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.95);
+    max-width: 70%;
+}
+
+/* ======== FOOTER ======== */
+.footer {
+    background-color: #009E60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 50px;
+}
+
+.footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer .logo img {
+    height: 60px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+    .hero, .new-time, .transport, .materials, .energy {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text, .new-time-text, .transport-text {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-image img, .new-time-image img, .transport img {
+        width: 90%;
+        height: auto;
+        display: block; /* show inline hero image on small screens */
+    }
+
+    /* ensure hero text and button center on small screens */
+    .hero-text {
+        align-items: center;
+    }
+}
